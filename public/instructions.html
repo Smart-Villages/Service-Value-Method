@@ -1,0 +1,85 @@
+<!--
+  Service Value Method:  Provide visual indications what services to focus on given a list of participants with their
+                         choices and additional decision criteria.
+
+  @license AGPL-3.0-or-later
+
+  Copyright (C) 2020 Thiemo Müller
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU Affero General Public License as
+  published by the Free Software Foundation, either version 3 of the
+  License, or (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Affero General Public License for more details.
+
+  You should have received a copy of the GNU Affero General Public License
+  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<h2>How to</h2>
+<ul>
+  <li>Upload a *.csv file. To get the csv file, export it from Excel by using "Save as...". The csv file should have
+    the following structure:</li>
+  <li>Provide a header row with the names of the services that the participants of your focus group came up with/could
+    choose from. We recommend using short labels for the names of the services to make the service map as readable as possible.
+  </li>
+  <li>Provide one row for each participant. The name of the participant (can be anonymised but must be unique) must be
+    in the first column, then insert the number of counters they assigned to each service. If participants could only
+    select Yes or No, put in a 1 (Yes) or 0 (No).
+  </li>
+  <li>In rows at the bottom, provide your Decision Criteria that you want to assess each service with respect to. Examples
+    are "Ease of delivery" or "Near-term economic benefit" (as defined in Clements et al 2019). For each service, insert a
+    number to rate the service. When ranking services according to a Decision Criterion, larger numbers are interpreted as better.
+  </li>
+  <li>Optional: To control the colour of the service bubbles, add an additional row titled 'Colour' and indicate with numbers
+    which services should be the same colour. For example, if you held multiple focus groups you can use the colour of each
+    service bubble to indicate how many of the groups suggested that service.
+  </li>
+</ul>
+
+<h2>Example:</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Person</th>
+    <th>Option 1</th>
+    <th>Option 2</th>
+    <th>Option 3</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <th>Participant A</th>
+    <td>3</td>
+    <td>0</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>Participant B</th>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>Participant C</th>
+    <td>0</td>
+    <td>1</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <th>Ease of delivery</th>
+    <td>1</td>
+    <td>1</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <th>Near-term economic benefit</th>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  </tbody>
+</table>
