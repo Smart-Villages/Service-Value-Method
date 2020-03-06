@@ -49,9 +49,9 @@ class ConfigureRows extends React.Component {
     super(props);
 
     this.state = {
-      participants: props.data,
-      bubbleSizes: null,
-      decisionCriteria: [],
+      participants: props.participants || props.data,
+      bubbleSizes: props.bubbleSizes || null,
+      decisionCriteria: props.decisionCriteria || [],
     };
   }
 
@@ -207,7 +207,18 @@ class ConfigureRows extends React.Component {
 
     return (
       <div className="App-Rows">
-        <h1>Step 3/3: Type rows</h1>
+        <div className="App-Header">
+          <a href="#back" onClick={(e) => {
+            e.preventDefault();
+
+            this.props.back();
+          }}>Back</a>
+
+          <h1>Step 3/3: Type rows</h1>
+
+          <div>&nbsp;</div>
+        </div>
+
         <p>Which of the following rows are not participants?</p>
 
         <Form>

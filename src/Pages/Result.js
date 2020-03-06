@@ -279,7 +279,13 @@ class Result extends React.Component {
 
     return (
       <div className="App-Display">
-        <div className="App-Display-Options">
+        <div className="App-Header">
+          <a href="#back" onClick={(e) => {
+            e.preventDefault();
+
+            this.props.back();
+          }}>Back</a>
+
           <Dropdown>
             <Dropdown.Toggle variant="secondary" id="dropdown-basic">
               Display
@@ -330,6 +336,7 @@ class Result extends React.Component {
             }, 10);
           }}>Download</Button>
         </div>
+
         <div className="App-Display-Chart">
           <svg
             width="100%"
@@ -532,7 +539,7 @@ class Result extends React.Component {
                           {
                             label.map((text, i) => {
                               return (
-                                <tspan x={cx} dy={`${i?1:0}em`}>{text}</tspan>
+                                <tspan key={i} x={cx} dy={`${i?1:0}em`}>{text}</tspan>
                               );
                             })
                           }

@@ -111,12 +111,20 @@ class ResultWeb extends React.Component {
 
     return (
       <div className="App-Display">
-        <div className="App-Display-Options">
+        <div className="App-Header">
+          <a href="#back" onClick={(e) => {
+            e.preventDefault();
+
+            this.props.back();
+          }}>Back</a>
+
           <a href="#back" onClick={(e) => {
             e.preventDefault();
 
             this.props.show("grid");
-          }}>Back</a>
+          }}>Bubbles</a>
+
+          <div>&nbsp;</div>
         </div>
         <div className="App-Display-Chart">
           { series.length ? (
@@ -129,7 +137,7 @@ class ResultWeb extends React.Component {
           {
             criteria.map((row, i) => {
               return (
-                <Row>
+                <Row key={i}>
                   <Col xs={4} className={"Row-Name"}>
                     <label htmlFor={`row-${i}`}>{row.name}</label>
                   </Col>

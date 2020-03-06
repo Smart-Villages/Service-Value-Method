@@ -20,13 +20,6 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-.App-Display .App-Display-Options {
-  padding:10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-
 .App-Display-Filters input {
   width: 100%;
 }

@@ -40,7 +40,7 @@ class SelectServices extends React.Component {
     super(props);
 
     this.state = {
-      selectedServices: props.services,
+      selectedServices: props.selectedServices || props.services,
     };
   }
 
@@ -75,7 +75,18 @@ class SelectServices extends React.Component {
 
     return (
       <div className="App-Data">
-        <h1>Step 2/3: Refine options</h1>
+        <div className="App-Header">
+          <a href="#back" onClick={(e) => {
+            e.preventDefault();
+
+            this.props.back();
+          }}>Back</a>
+
+          <h1>Step 2/3: Refine options</h1>
+
+          <div>&nbsp;</div>
+        </div>
+
         <p>Which of the following options would you like to display in the diagram?</p>
 
         <Form>

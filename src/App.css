@@ -28,3 +28,10 @@
 .App h2 {
   margin-top: 30px;
 }
+
+.App-Header {
+  padding:10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -102,6 +102,13 @@ class App extends React.Component {
     else if(this.state.step===STEP_SERVICES) {
       content = (
         <SelectServices
+          back={() => {
+            this.setState({
+              step: STEP_INTRODUCTION,
+            });
+          }}
+          selectedServices={this.state.selectedServices}
+
           services={this.state.services}
           onDone={(v) => {
             this.setState(v);
@@ -115,6 +122,22 @@ class App extends React.Component {
     else if(this.state.step===STEP_ROWS) {
       content = (
         <ConfigureRows
+          back={() => {
+            this.setState({
+              step: STEP_SERVICES,
+              participants: null,
+              bubbleSizes: null,
+              decisionCriteria: null,
+              serviceVotes: null,
+              serviceVoters: null,
+            });
+          }}
+          participants={this.state.participants}
+          bubbleSizes={this.state.bubbleSizes}
+          decisionCriteria={this.state.decisionCriteria}
+          serviceVotes={this.state.serviceVotes}
+          serviceVoters={this.state.serviceVoters}
+
           selectedServices={this.state.selectedServices}
           data={this.state.data}
           onDone={(v) => {
@@ -135,6 +158,12 @@ class App extends React.Component {
       if(this.state.show==="web") {
         content = (
           <ResultWeb
+            back={() => {
+              this.setState({
+                step: STEP_ROWS,
+              });
+            }}
+
             decisionCriteria={this.state.decisionCriteria}
             serviceVotes={this.state.serviceVotes}
             serviceVoters={this.state.serviceVoters}
@@ -147,6 +176,12 @@ class App extends React.Component {
       else if(this.state.show==="grid") {
         content = (
           <Result
+            back={() => {
+              this.setState({
+                step: STEP_ROWS,
+              });
+            }}
+
             decisionCriteria={this.state.decisionCriteria}
             serviceVotes={this.state.serviceVotes}
             serviceVoters={this.state.serviceVoters}
