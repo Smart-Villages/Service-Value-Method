@@ -27,6 +27,7 @@ import Start from "./Pages/Start";
 import SelectServices from "./Pages/SelectServices";
 import ConfigureRows from "./Pages/ConfigureRows";
 import Result from "./Pages/Result";
+import ResultWeb from "./Pages/ResultWeb";
 
 /**
  * Provide a short explanation how to use it and ask the user to upload the CSV file. Result is the parsed CSV file.
@@ -66,6 +67,7 @@ class App extends React.Component {
 
     this.state = {
       step: STEP_INTRODUCTION,
+      show: "grid",
       services: null,
       selectedServices: null,
       serviceVotes: null,
@@ -125,15 +127,35 @@ class App extends React.Component {
       );
     }
     else if(this.state.step===STEP_DISPLAY) {
-      content = (
-        <Result
-          decisionCriteria={this.state.decisionCriteria}
-          serviceVotes={this.state.serviceVotes}
-          serviceVoters={this.state.serviceVoters}
-          selectedServices={this.state.selectedServices}
-          bubbleSizes={this.state.bubbleSizes}
+      const show = (show) => {
+        this.setState({
+          show: show,
+        });
+      };
+      if(this.state.show==="web") {
+        content = (
+          <ResultWeb
+            decisionCriteria={this.state.decisionCriteria}
+            serviceVotes={this.state.serviceVotes}
+            serviceVoters={this.state.serviceVoters}
+            selectedServices={this.state.selectedServices}
+            bubbleSizes={this.state.bubbleSizes}
+            show={show}
           />
-      );
+        );
+      }
+      else if(this.state.show==="grid") {
+        content = (
+          <Result
+            decisionCriteria={this.state.decisionCriteria}
+            serviceVotes={this.state.serviceVotes}
+            serviceVoters={this.state.serviceVoters}
+            selectedServices={this.state.selectedServices}
+            bubbleSizes={this.state.bubbleSizes}
+            show={show}
+          />
+        );
+      }
     }
 
     return (

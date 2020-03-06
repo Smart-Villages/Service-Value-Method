@@ -303,6 +303,12 @@ class Result extends React.Component {
             </Dropdown.Menu>
           </Dropdown>
 
+          <a href="#back" onClick={(e) => {
+            e.preventDefault();
+
+            this.props.show("web");
+          }}>Web</a>
+
           <Button variant={"primary"} onClick={(event)=> {
             event.preventDefault();
 
