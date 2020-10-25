@@ -123,13 +123,13 @@ class Start extends React.Component {
 
                 let value = data[i][n];
 
-                value = value.replace( /(,|\.)[0-9]+/, "");
+                value = value.replace( /,/, ".");
 
                 if(value==="x" || value.match(/^\s*$/)) {
                   value = 0;
                 }
-                else if(value.match(/^[0-9]+$/)) {
-                  value = parseInt(value);
+                else if(value.match(/^[0-9]+\.?[0-9]*$/)) {
+                  value = parseFloat(value);
                 }
                 else {
                   unknownValues.push(value);
